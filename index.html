@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon-clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="./images/fevicon.png">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav id="main_nav">
+        <div class="container">
+            <img src="./images/logo.png" alt="Logo">
+        </div>
+        <div class="container">
+            <ul class="nav_menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#products">Products</a></li>
+            </ul>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="ham">
+            <span>
+                <a href="#" onclick="pop()">
+                    <svg width="50" height="35">
+                        <path d="M0,5 50,5" stroke="white" stroke-width="5" />
+                        <path d="M0,18 50,18" stroke="white" stroke-width="5" />
+                        <path d="M0,32 50,32" stroke="white" stroke-width="5" />
+                    </svg>
+                </a>
+            </span>
+        </div>
+
+        <div id="ham_nav" class="ham_item">
+            <button type="button" id="btn" onclick="close_nav()">&times</button>
+            <ul class="side_nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#products">Products</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <!-- shoe Company Info -->
+    <div class="c_info">
+        <h1>Shoes Section</h1>
+        <p>We have shoes of different designs and brands</p>
+    </div>
+
+    <!-- Catalog -->
+    <div id="products">
+        <div class="p_sort_filter">
+            <div class="num">
+                <h3><span id="qty"></span> Products</h3>
+            </div>
+
+            <div class="sort_filter">
+                <div class="filter_item">
+                    <label for="Filter">Filter by :
+                    <select name="Filter" id="Filter" onchange="expand_filter()">
+                        <option>Select..</option>
+                        <option id="f_b_name"value="brand">Brand</option>
+                        <option value="Price">Price</option>
+                        <option value="Star Rating">Star Rating</option>
+                        <option value="delivery">Delivery By</option>
+                    </select>
+                    </label>
+                </div>
+
+                <div id="f_bb_name">
+                    <button class="f_by_b_nam3" value="Nike Sports">Nike</button>
+                    <button class="f_by_b_nam3" value="Reebok Sports">Reebok</button>
+                    <button class="f_by_b_nam3" value="Adidas">Adidas</button>
+                    <button class="f_by_b_nam3" value="Gucci">Gucci</button>
+                    <button class="f_by_b_nam3" value="D&G">D&G</button>   
+                    <button class="f_by_b_nam3" value="Action">Action</button>   
+                </div>
+
+                <div id="f_bp">
+                        <button class="f_by_p" onclick="filter_price(5000, 10000)">Above 5000</button>
+                        <button class="f_by_p" onclick="filter_price(2500, 5000)">B/w 2500 & 5000</button>
+                        <button class="f_by_p" onclick="filter_price(0, 2500)">Below 2500</button>            
+                </div> 
+
+                <div id="f_br">
+                    <button class="f_by_r" onclick="filter_rating(5)">5 Star</button>
+                    <button class="f_by_r" onclick="filter_rating(4)">More then 4 Star</button>
+                    <button class="f_by_r" onclick="filter_rating(3)">More then 3 Star</button>
+                    <button class="f_by_r" onclick="filter_rating(2)">Less then 2 Star</button>
+                </div>
+
+                <div id="f_bd">
+                    <button class="f_by_d" value="Today">Today</button>
+                    <button class="f_by_d" value="Tomorrow">Tomorrow</button>
+                </div>
+
+                <div class="sort_item">
+                    <label for="Sort By">Sort by :
+                    <select name="Sort" id="sort" onchange="expand_sort()">
+                        <option>Select..</option>
+                        <option value="brand">Brand</option>
+                        <option value="price">Price</option>
+                        <option value="rating">Rating</option>  
+                    </select>
+                    </label>
+                </div>
+
+                <div id="s_item">
+                    <button class="s_item_order" value="increasing" >Increasing</button>
+                    <button class="s_item_order" value="decreasing" >Decreasing</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="catalog">
+            
+            <div class="box" >
+                <div class="image">
+                    <img src="./images/image1.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Nike Sports</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">3.2</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2000.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image2.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Adidas</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">4.1</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">1900.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Tomorrow</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image  m-p-t">
+                    <img src="./images/image3.png" width="230" alt="image.jpg">
+                </div>
+                <div class="p_info m-t">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Reebok Sports</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">5.0</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2500.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image4.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Gucci</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">1.4</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">5500.00</span></h2>
+                    <small>Delivery by: <span class="delivery"></span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image image-m-p-b">
+                    <img src="./images/image5.png" alt="image.jpg">
+                </div>
+                <div class="p_info m-b">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">D&G</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">4.1</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">3000.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image6.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Action</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">1.8</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">6000.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Tomorrow</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image1.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Nike Sports</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">3.2</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">1700.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image2.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Adidas</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">4.1</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">1900.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Tomorrow</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image  m-p-t">
+                    <img src="./images/image3.png" width="230" alt="image.jpg">
+                </div>
+                <div class="p_info m-t">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Reebok Sports</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">1.0</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2600.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image4.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Gucci</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">2.4</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">3000.00</span></h2>
+                    <small>Delivery by: <span class="delivery"></span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image image-m-p-b">
+                    <img src="./images/image5.png" alt="image.jpg">
+                </div>
+                <div class="p_info m-b">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">D&G</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">4.1</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">3200.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image6.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Action</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">2.8</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2400.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Tomorrow</span></small>
+                </div>
+            </div><div class="box">
+                <div class="image">
+                    <img src="./images/image1.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Nike Sports</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">3.2</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2100.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image2.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Adidas</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">1.1</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">1900.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Tomorrow</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image  m-p-t">
+                    <img src="./images/image3.png" width="230" alt="image.jpg">
+                </div>
+                <div class="p_info m-t">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Reebok Sports</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">5.0</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">5100.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image4.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Gucci</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">1.4</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2300.00</span></h2>
+                    <small>Delivery by: <span class="delivery"></span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image image-m-p-b">
+                    <img src="./images/image5.png" alt="image.jpg">
+                </div>
+                <div class="p_info m-b">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">D&G</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">4.1</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">3000.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Today</span></small>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="./images/image6.png" alt="image.jpg">
+                </div>
+                <div class="p_info">
+                    <div class="brand_star">
+                        <div class="b_name">
+                            <h3 class="brand">Action</h3>
+                        </div>
+                        <div class="rating">
+                            <span><img src="./images/Star.png" alt=""></span>
+                            <span class="random_rating">1.8</span>
+                        </div>
+                    </div>
+                    <h2 class="price">₹<span class="price_tag">2500.00</span></h2>
+                    <small>Delivery by: <span class="delivery">Tomorrow</span></small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="main_footer">
+        <p>Copyright&copy, 2022</p>
+    </footer>
+</body>
+    <script src="script.js"></script>
+</html>
